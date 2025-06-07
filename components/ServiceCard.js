@@ -264,7 +264,7 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
           } rounded-2xl p-8 text-center text-white`}
         >
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl mb-6 opacity-90">Let's discuss your project and bring your vision to life</p>
+          <p className="text-xl mb-6 opacity-90">Let&apos;s discuss your project and bring your vision to life&apos;</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
               whileHover={{ scale: 1.05 }}

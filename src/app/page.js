@@ -51,7 +51,7 @@ export default function Home() {
     {
       title: "SEO",
       description:
-        "Search engine optimization to improve your website's visibility and organic traffic.",
+        "Search engine optimization to improve your website&apos;s visibility and organic traffic.",
     },
   ];
 
