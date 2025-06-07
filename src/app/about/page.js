@@ -81,8 +81,8 @@ const About = () => {
               About <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">DigiExperts</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We're a passionate team of digital innovators dedicated to helping businesses thrive in the digital age. 
-              Since 2019, we've been transforming ideas into powerful digital experiences.
+              We&rsquo;re a passionate team of digital innovators dedicated to helping businesses thrive in the digital age. 
+              Since 2019, we&rsquo;ve been transforming ideas into powerful digital experiences.
             </p>
           </motion.div>
         </div>
@@ -135,7 +135,7 @@ const About = () => {
                 partner for companies worldwide.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Today, we're proud to have helped over 150 businesses transform their digital presence, 
+                Today, we&#8217;re proud to have helped over 150 businesses transform their digital presence, 
                 increase their online visibility, and achieve sustainable growth through innovative 
                 web solutions and digital marketing strategies.
               </p>
@@ -222,7 +222,7 @@ const About = () => {
               Meet Our Team
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The talented professionals behind DigiExperts' success.
+              The talented professionals behind DigiExperts&#8217; success.
             </p>
           </motion.div>
 
@@ -261,7 +261,7 @@ const About = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join the 150+ businesses that have already transformed their digital presence with DigiExperts.
+              Join the 150+ businesses that have already transformed their digital presence with DigiExperts&#8217;.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button

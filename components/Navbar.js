@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import TransitionLink from "../components/TransitionLink.js";
 import { motion } from "framer-motion";
 import Link from "next/link.js";
 
@@ -25,30 +24,30 @@ const Navbar = () => {
             </Link>
           </div>
           <nav className="hidden sm:flex space-x-8">
-            <TransitionLink
+            <Link
               href="/"
               className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
             >
               Home
-            </TransitionLink>
-            <TransitionLink
+            </Link>
+            <Link
               href="/services"
               className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
             >
               Services
-            </TransitionLink>
-            <TransitionLink
+            </Link> 
+            <Link
               href="/about"
               className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
             >
               About
-            </TransitionLink>
-            <TransitionLink
+            </Link>
+            <Link
               href="/contact"
               className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
             >
               Contact
-            </TransitionLink>
+            </Link>
           </nav>
           <div className="sm:hidden">
             <button
@@ -108,16 +107,16 @@ const Navbar = () => {
               <span className="text-xl">Close</span>
             </button>
               <li className="border-b-2 border-gray-100">
-                <a href="/">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li className="border-b-2 border-gray-100">
-                <a href="/services">Services</a>
+                <Link href="/services">Services</Link>
               </li>
               <li className="border-b-2 border-gray-100">
-                <a href="/about">About</a>
+                <Link href="/about">About</Link>
               </li>
               <li className="border-b-2 border-gray-100">
-                <a href="/contact">Contact</a>
+                <Link href="/contact">Contact</Link>
               </li>
             </motion.ul>
           </nav>

@@ -13,7 +13,7 @@ export const usePageTransition = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000) // Show loader for 2 seconds on initial load
+    }, 1000) // Show loader for 1 seconds on initial load
 
     return () => clearTimeout(timer)
   }, [])
