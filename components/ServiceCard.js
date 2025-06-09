@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import BookingModal from "./BookingModal.js";
 
 // Move servicesData here or import from a separate data file
 const servicesData = {
@@ -27,7 +28,7 @@ const servicesData = {
       ],
       technologies: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
       timeline: '2-6 weeks',
-      startingPrice: '₹25,000'
+      startingPrice: '₹20,000'
     }
   },
   mobile: {
@@ -109,6 +110,7 @@ const servicesData = {
 
 // ServiceCard Component
 const ServiceCard = ({ service, setCurrentPage }) => (
+
   <motion.div 
     whileHover={{ y: -5 }}
     className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
@@ -152,10 +154,13 @@ const ServiceCard = ({ service, setCurrentPage }) => (
 // Service Detail Page Component
 const ServiceDetailPage = ({ serviceId, onBack }) => {
   const service = servicesData[serviceId];
+  const [isModalOpen, setIsModalOpen] = useState(false)
   
   if (!service) return null;
 
   return (
+    <>
+    <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -273,8 +278,8 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
               Get Free Quote
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all"
+            onClick={() => setIsModalOpen(true)}
+              className="border-2 relative z-50 border-white cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all"
             >
               Schedule Call
             </motion.button>
@@ -282,5 +287,6 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
         </motion.div>
       </div>
     </motion.div>
+    </>
   );
 };

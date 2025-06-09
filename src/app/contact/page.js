@@ -2,31 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Calendar, Send, Facebook, X , Instagram, Linkedin } from 'lucide-react'
+import { Phone, Mail, MapPin, Calendar, Facebook, X , Instagram, Linkedin } from 'lucide-react'
+import BookingModal from '../../../components/BookingModal'
+import ContactForm from '../../../components/ContactForm' 
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  })
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Handle form submission
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-green-50">
+      <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <div className="max-w-7xl mx-auto px-4 py-16">
         
         {/* Hero Section */}
@@ -49,88 +34,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
-          >
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-              Let&#8217;s Start Your Digital Journey
-            </h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="+91 XXXXX XXXXX"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                  placeholder="Tell us about your project..."
-                  required
-                />
-              </div>
-              
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 px-6 rounded-lg font-medium hover:shadow-lg transition-all flex items-center justify-center gap-2"
-              >
-                <Send size={20} />
-                Send Message
-              </motion.button>
-            </form>
-          </motion.div>
+          <ContactForm />
 
           {/* Contact Info */}
           <motion.div
@@ -149,8 +53,8 @@ export default function ContactPage() {
                     <Phone className="text-blue-600" size={20} />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800">+91 XXXXXXXXXX</p>
-                    <p className="text-sm text-gray-600">Mon-Sat, 9 AM - 7 PM</p>
+                    <p className="font-medium text-gray-800">+91 6350617334</p>
+                    <p className="text-sm text-gray-600">Mon-Sat, 10 AM - 10 PM</p>
                   </div>
                 </div>
                 
@@ -160,7 +64,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-800">hello@digiexpert.in</p>
-                    <p className="text-sm text-gray-600">We reply within 2 hours</p>
+                    <p className="text-sm text-gray-600">We reply within 2 - 3 hours</p>
                   </div>
                 </div>
                 
@@ -183,6 +87,7 @@ export default function ContactPage() {
                 30-minute strategy session to discuss your digital goals
               </p>
               <motion.button
+                onClick={() => setIsModalOpen(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all flex items-center gap-2"
@@ -224,7 +129,7 @@ export default function ContactPage() {
                 >
                   <Linkedin className="text-blue-600" size={24} />
                 </motion.a>
-              </div>
+              </div> 
               <p className="text-sm text-gray-600 mt-4">
                 Stay updated with latest digital trends and tips!
               </p>

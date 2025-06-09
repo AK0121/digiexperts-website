@@ -8,16 +8,16 @@ export default function Home() {
   const testimonials = [
     {
       quote:
-        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
+        "DigiExperts exceeded our expectations with their web development expertise and strategic approach to Meta marketing and Facebook Ads. Their team crafted a seamless user experience that drove conversions.",
+      name: "Rahul Saini",
+      designation: "Investment Manager",
       src: "/images/testimonial-1.jpg",
     },
     {
       quote:
-        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-      name: "Michael Rodriguez",
-      designation: "CTO at InnovateSphere",
+        "DigiExperts' web development services were a perfect fit for our business needs. Their team understood our requirements and delivered a solution that met our expectations.",
+      name: "Abhay Saini",
+      designation: "Restaurant Owner",
       src: "/images/testimonial-2.jpg",
     },
   ];

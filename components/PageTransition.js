@@ -10,7 +10,7 @@ const PageTransition = ({ children, isLoading = false }) => {
     if (isLoading) {
       setShowLoader(true)
     } else {
-      const timer = setTimeout(() => setShowLoader(false), 1000)
+      const timer = setTimeout(() => setShowLoader(false), 300)
       return () => clearTimeout(timer)
     }
   }, [isLoading])

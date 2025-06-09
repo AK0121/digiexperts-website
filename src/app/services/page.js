@@ -136,7 +136,7 @@ const ServiceCard = ({ service, setCurrentPage }) => (
       
       <button 
         onClick={() => setCurrentPage(service.id)}
-        className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+        className={`w-full py-3 px-6 rounded-lg font-semibold cursor-pointer transition-all duration-300 ${
           service.color === 'blue' ? 'bg-blue-600 hover:bg-blue-700 text-white' :
           service.color === 'green' ? 'bg-green-600 hover:bg-green-700 text-white' :
           service.color === 'purple' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
@@ -168,7 +168,7 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
         <motion.button
           onClick={onBack}
           whileHover={{ scale: 1.05 }}
-          className="mb-8 flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
+          className="mb-8 flex items-center gap-2 cursor-pointer text-gray-600 hover:text-gray-800 transition-colors"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"/>
