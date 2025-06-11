@@ -16,7 +16,7 @@ const ContactForm = () => {
         className="flex flex-col items-center justify-center text-center bg-green-50 border border-green-200 text-green-700 py-4 px-6 rounded-lg shadow-sm"
       >
         <h2 className="text-5xl font-bold">Thank you for reaching out!</h2>
-        <h3 className="text-3xl mt-4">We've received your message and will get back to you shortly.</h3>
+        <h3 className="text-3xl mt-4">We&#8217;ve received your message and will get back to you shortly.</h3>
       </motion.div>
     );
   }
