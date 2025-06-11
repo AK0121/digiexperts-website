@@ -2,6 +2,7 @@ import Image from "next/image";
 import { AnimatedTestimonials } from "../../components/AnimatesTestimonials";
 import { HoverEffect } from "../../components/CardsHover";
 import Link from "next/link";
+import { Globe, Code, Laptop, Facebook, Target, Search } from "lucide-react";
 
 export default function Home() {
 
@@ -25,31 +26,37 @@ export default function Home() {
   const projects = [
     {
       title: "Website Design",
+      icon: <Laptop />,
       description:
         "Modern, responsive website designs that capture your brand and engage your audience.",
     },
     {
       title: "Web Development",
+      icon: <Code />,
       description:
         "Custom web applications built with latest technologies for optimal performance.",
     },
     {
       title: "Landing Pages",
+      icon: <Target />,
       description:
         "High-converting landing pages designed to turn visitors into customers.",
     },
     {
       title: "Facebook Ads",
+      icon: <Facebook />,
       description:
         "Strategic social media advertising campaigns to reach your target audience effectively.",
     },
     {
       title: "Ad Strategy & Funnel Planning",
+      icon: <Search />,
       description:
         "	Building custom ad strategies and funnels based on business goals.",
     },
     {
       title: "SEO",
+      icon: <Globe />,
       description:
         "Search engine optimization to improve your website&apos;s visibility and organic traffic.",
     },
@@ -77,7 +84,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="right-10 w-72 h-72 sm:w-96 sm:h-96 relative">
+        <div className="right-2.5 w-80 h-80 sm:w-96 sm:h-96 relative">
           <Image
             src="/images/hero-illustration.svg"
             alt="Hero Illustration"
@@ -87,7 +94,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="absolute -bottom-40 sm:-bottom-52 left-1/2 transform -translate-x-1/2 w-80 h-80 sm:w-3xl sm:h-[30rem]">
+        <div className="absolute -bottom-60 sm:-bottom-52 left-1/2 transform -translate-x-1/2 w-[26rem] h-96 sm:w-3xl sm:h-[30rem]">
           <Image
             alt="Landing-pages-image"
             sizes="(max-width: 768px) 700, 1000"
@@ -98,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* Our Services Section */}
-      <section className="py-20 bg-green-50 mt-32">
+      <section className="py-20 bg-green-50 mt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-8xl font-bold text-blue-600 mb-4">

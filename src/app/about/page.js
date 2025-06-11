@@ -11,8 +11,12 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+import BookingModal from "../../../components/BookingModal.js";
+import { useState } from "react";
 
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -85,6 +89,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
+      <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -253,26 +258,22 @@ const About = () => {
               Join the 150+ businesses that have already transformed their
               digital presence with DigiExperts&#8217;.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.div className="cursor-pointer">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:shadow-lg transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
               >
                 Get Started Today
               </Link>
               </motion.div>
-              <motion.div className="cursor-pointer">
-                <Link
-                href="/contact"
-                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <motion.div className="cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
+                <button
+                onClick={() => {setIsModalOpen(true);}}
+                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold cursor-pointer"
               >
-                Schedule a Call
-              </Link>
+                Schedule a meeting
+              </button>
               </motion.div>
             </div>
           </motion.div>

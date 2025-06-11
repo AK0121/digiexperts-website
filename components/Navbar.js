@@ -70,6 +70,8 @@ const Navbar = () => {
               <span className="font-medium">Menu</span>
             </button>
           </div>
+
+          {/* Mobile menu */}
           {menuOpen && (
             <nav className="nav-menu fixed top-0 left-0 w-full h-screen z-50">
             {/* Layer 1: Green BG screen */}
@@ -107,16 +109,16 @@ const Navbar = () => {
               <span className="text-xl">Close</span>
             </button>
               <li className="border-b-2 border-gray-100">
-                <Link href="/">Home</Link>
+                <Link onClick={() => setMenuOpen(!menuOpen)} href="/">Home</Link>
               </li>
               <li className="border-b-2 border-gray-100">
-                <Link href="/services">Services</Link>
+                <Link onClick={() => setMenuOpen(!menuOpen)} href="/services">Services</Link>
               </li>
               <li className="border-b-2 border-gray-100">
-                <Link href="/about">About</Link>
+                <Link onClick={() => setMenuOpen(!menuOpen)} href="/about">About</Link>
               </li>
               <li className="border-b-2 border-gray-100">
-                <Link href="/contact">Contact</Link>
+                <Link onClick={() => setMenuOpen(!menuOpen)} href="/contact">Contact</Link>
               </li>
             </motion.ul>
           </nav>

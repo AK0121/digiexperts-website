@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import BookingModal from "./BookingModal.js";
+import Link from "next/link.js";
 
 // Move servicesData here or import from a separate data file
-const servicesData = {
+export const servicesData = {
   web: {
     id: 'web',
     title: 'Web Development',
@@ -109,11 +110,10 @@ const servicesData = {
 };
 
 // ServiceCard Component
-const ServiceCard = ({ service, setCurrentPage }) => (
+export const ServiceCard = ({ service, setCurrentPage }) => (
 
   <motion.div 
-    whileHover={{ y: -5 }}
-    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+    className="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden group"
   >
     <div className={`h-2 bg-gradient-to-r ${
       service.color === 'blue' ? 'from-blue-400 to-blue-600' :
@@ -138,7 +138,7 @@ const ServiceCard = ({ service, setCurrentPage }) => (
       
       <button 
         onClick={() => setCurrentPage(service.id)}
-        className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+        className={`w-full py-3 px-6 rounded-lg font-semibold cursor-pointer transition-all ease-in-out duration-300 ${
           service.color === 'blue' ? 'bg-blue-600 hover:bg-blue-700 text-white' :
           service.color === 'green' ? 'bg-green-600 hover:bg-green-700 text-white' :
           service.color === 'purple' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
@@ -152,7 +152,7 @@ const ServiceCard = ({ service, setCurrentPage }) => (
 );
 
 // Service Detail Page Component
-const ServiceDetailPage = ({ serviceId, onBack }) => {
+export const ServiceDetailPage = ({ serviceId, onBack }) => {
   const service = servicesData[serviceId];
   const [isModalOpen, setIsModalOpen] = useState(false)
   
@@ -172,8 +172,7 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
         {/* Back Button */}
         <motion.button
           onClick={onBack}
-          whileHover={{ scale: 1.05 }}
-          className="mb-8 flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
+          className="mb-8 flex items-center gap-2 text-gray-600 cursor-pointer hover:text-gray-800 transition-colors hover:scale-105 ease-in-out"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"/>
@@ -235,7 +234,7 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
                   <span key={index} className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">
                     {tech}
                   </span>
-                ))}
+                ))} 
               </div>
             </div>
 
@@ -271,15 +270,14 @@ const ServiceDetailPage = ({ serviceId, onBack }) => {
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-6 opacity-90">Let&apos;s discuss your project and bring your vision to life&apos;</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+            <Link href="/contact"
+              className="bg-white cursor-pointer text-gray-900 px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all ease-in-out hover:scale-105"
             >
               Get Free Quote
-            </motion.button>
+            </Link>
             <motion.button
             onClick={() => setIsModalOpen(true)}
-              className="border-2 relative z-50 border-white cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all"
+              className="border-2 relative z-50 border-white cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all ease-in-out"
             >
               Schedule Call
             </motion.button>

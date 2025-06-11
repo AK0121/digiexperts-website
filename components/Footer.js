@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -25,24 +26,21 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>About Us</li>
-                <li>Our Team</li>
-                <li>Careers</li>
-                <li>Contact</li>
+                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/services">Services</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>LinkedIn</li>
-                <li>Twitter</li>
-                <li>Instagram</li>
-                <li>Facebook</li>
+                <li><Link target="_blank" href="https://www.instagram.com/digiexperts_info/">Instagram</Link></li>
+                <li><Link target="_blank" href="https://www.facebook.com/digiexperts/">Facebook</Link></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 DigiExperts. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} DigiExperts. All rights reserved.</p>
           </div>
         </div>
       </footer>

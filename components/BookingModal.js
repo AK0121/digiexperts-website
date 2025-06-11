@@ -195,10 +195,8 @@ const BookingModal = ({ isOpen, onClose }) => {
                 {generateAvailableDates().map((date, index) => (
                   <motion.button
                     key={index}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                     onClick={() => handleDateSelect(date)}
-                    className="p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all text-left"
+                    className="p-4 border-2 cursor-pointer border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all text-left hover:scale-102"
                   >
                     <div className="font-medium">
                       {date.toLocaleDateString('en-US', { weekday: 'short' })}
@@ -243,10 +241,8 @@ const BookingModal = ({ isOpen, onClose }) => {
                     {availableSlots.map((time) => (
                       <motion.button
                         key={time}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedTime(time)}
-                        className={`p-3 border-2 rounded-lg transition-all ${
+                        className={`p-3 border-2 cursor-pointer rounded-lg transition-all hover:scale-102 ${
                           selectedTime === time
                             ? 'border-blue-500 bg-blue-50 text-blue-700'
                             : 'border-gray-200 hover:border-blue-300'
@@ -267,7 +263,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                     <button
                       onClick={() => setStep(3)}
                       disabled={!selectedTime}
-                      className="px-6 py-2 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-all"
+                      className="px-6 py-2 bg-gradient-to-r from-blue-600 to-green-600 text-white cursor-pointer rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-all"
                     >
                       Continue
                     </button>
@@ -327,7 +323,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Company
+                      Company (optional)
                     </label>
                     <input
                       type="text"
@@ -421,7 +417,7 @@ const BookingModal = ({ isOpen, onClose }) => {
               </h3>
               
               <p className="text-gray-600 mb-6">
-                Your consultation has been scheduled. We've sent a confirmation email with the meeting details.
+                Your consultation has been scheduled. We&rsquo;ve sent a confirmation email with the meeting details.
               </p>
               
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">

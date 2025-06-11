@@ -88,9 +88,7 @@ export default function ContactPage() {
               </p>
               <motion.button
                 onClick={() => setIsModalOpen(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all flex items-center gap-2"
+                className="bg-white text-blue-600 cursor-pointer px-6 py-3 rounded-lg font-medium hover:scale-105 hover:shadow-lg transition-all flex items-center gap-2"
               >
                 <Calendar size={20} />
                 Schedule Meeting
@@ -102,30 +100,25 @@ export default function ContactPage() {
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Follow Us</h3>
               <div className="flex gap-4">
                 <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  href="#"
-                  className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 transition-colors"
+                  className="bg-blue-100 p-3 rounded-lg hover:scale-110 hover:bg-blue-200 transition-all"
                 >
                   <Facebook className="text-blue-600" size={24} />
                 </motion.a>
                 <motion.a
-                  whileHover={{ scale: 1.1 }}
                   href="#"
-                  className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 transition-colors"
+                  className="bg-blue-100 p-3 rounded-lg hover:scale-110 hover:bg-blue-200 transition-all"
                 >
                   <X className="text-blue-600" size={24} />
                 </motion.a>
                 <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  href="#"
-                  className="bg-pink-100 p-3 rounded-lg hover:bg-pink-200 transition-colors"
+                    href="#"
+                  className="bg-pink-100 p-3 rounded-lg hover:scale-110 hover:bg-pink-200 transition-all"
                 >
                   <Instagram className="text-pink-600" size={24} />
                 </motion.a>
                 <motion.a
-                  whileHover={{ scale: 1.1 }}
                   href="#"
-                  className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 transition-colors"
+                  className="bg-blue-100 p-3 rounded-lg hover:scale-110 hover:bg-blue-200 transition-all"
                 >
                   <Linkedin className="text-blue-600" size={24} />
                 </motion.a>

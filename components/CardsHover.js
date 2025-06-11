@@ -29,15 +29,16 @@ export const HoverEffect = ({
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  transition: { duration: 0.15 },
+                  transition: { duration: 0.45 },
                 }}
                 exit={{
                   opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
+                  transition: { duration: 0.45, delay: 0.2 },
                 }} />
             )}
           </AnimatePresence>
           <Card>
+            <CardIcon>{item.icon}</CardIcon>
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
@@ -60,6 +61,16 @@ export const Card = ({
       <div className="relative z-50">
         <div className="p-4">{children}</div>
       </div>
+    </div>
+  );
+};
+export const CardIcon = ({
+  className,
+  children
+}) => {
+  return (
+    <div className={cn("flex items-center justify-center w-12 h-12 rounded-full text-white bg-green-100 dark:bg-green-500", className)}>
+      {children}
     </div>
   );
 };
