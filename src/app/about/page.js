@@ -259,22 +259,22 @@ const About = () => {
               digital presence with DigiExperts&#8217;.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.div className="cursor-pointer">
+              <div className="cursor-pointer mb-4 sm:mb-0">
               <Link
                 href="/contact"
                 className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
               >
                 Get Started Today
               </Link>
-              </motion.div>
-              <motion.div className="cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
+              </div>
+              <div className="cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
                 <button
                 onClick={() => {setIsModalOpen(true);}}
                 className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold cursor-pointer"
               >
                 Schedule a meeting
               </button>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>

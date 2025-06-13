@@ -5,9 +5,6 @@ import RootLayoutClient from "./RootLayoutClient";
 export const metadata = {
   title: "DigiExperts – Your Digital Growth Partner",
   description: "We grow your business using cutting-edge digital strategies, SEO, ads & conversion-focused design.",
-  icons: {
-    icon: "/favicon.ico",
-  },
   keywords: ["digital marketing", "SEO", "web development", "Jaipur", "performance marketing", "Best Website Design", "Facebook Ads", "Meta Marketing", "Small business marketing", "Digital", "Digiexperts"],
   authors: [{ name: "Abhishek (AK)", url: "https://digiexperts.solutions" }],
   creator: "AKcelerate",
