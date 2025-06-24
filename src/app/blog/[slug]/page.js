@@ -181,29 +181,6 @@ export default async function BlogPost({ params }) {
           </div>
         </article>
 
-        {/* Related Articles CTA */}
-        <div className="mt-12 bg-white rounded-2xl shadow-lg border border-gray-100 p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Want More Expert Insights?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Stay ahead of the competition with our latest digital marketing strategies, tips, and industry insights delivered straight to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-6">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none"
-            />
-            <button className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-teal-700 hover:to-blue-700 transition-all duration-200 shadow-md hover:shadow-lg">
-              Subscribe
-            </button>
-          </div>
-          <p className="text-xs text-gray-500">
-            Join 10,000+ marketers who trust DigiExperts for cutting-edge insights
-          </p>
-        </div>
-
         {/* Back to Blog */}
         <div className="mt-8 text-center">
           <Link 
