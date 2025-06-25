@@ -112,7 +112,7 @@ export const Header = () => {
         </span>
       </h1>
       <p className="max-w-2xl text-center md:text-xl my-8 dark:text-neutral-200">
-        Jaipur's premier digital agency specializing in high-converting landing
+        Jaipur&apos;s premier digital agency specializing in high-converting landing
         pages and profitable Facebook ad campaigns
       </p>
       <div className="flex flex-col sm:flex-row gap-4  justify-center">

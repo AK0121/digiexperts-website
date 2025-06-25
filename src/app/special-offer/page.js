@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { HeroParallax } from "../../../components/HeroParallax.js";
 import  OurProcess  from "@/app/special-offer/OurProcess.js"
-import Link from "next/link";
 import  Services  from "@/app/special-offer/Services.js"
 import Footer from "../special-offer/Footer.js";
 import { Phone } from "lucide-react";
