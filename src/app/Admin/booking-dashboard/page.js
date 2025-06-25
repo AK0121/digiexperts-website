@@ -30,7 +30,7 @@ const BookingDashboard = () => {
     } else {
       router.push("/admin/login");
     }
-  }, []);
+  });
 
   const loadBookings = () => {
     const storedBookings = JSON.parse(localStorage.getItem("bookings") || "[]");

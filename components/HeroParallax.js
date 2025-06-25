@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import FormModal from "@/app/special-offer/FormModal.js";
+import Image from "next/image";
 
 export const HeroParallax = ({ products }) => {
 
@@ -141,7 +142,7 @@ export const ProductCard = ({ product, translate }) => {
       className="group/product h-48 w-96 md:h-96 md:w-[45rem] relative shrink-0"
     >
       <a href={product.link} className="block group-hover/product:shadow-2xl ">
-        <img
+        <Image
           src={product.thumbnail}
           height="600"
           width="600"
