@@ -399,7 +399,6 @@ export default function ServicesSection() {
                       {isExpanded ? "Show Less" : "Learn More"}
                     </span>
                     <motion.div
-                      animate={{ rotate: isExpanded ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                       className="w-5 h-5 relative z-10"
                     >

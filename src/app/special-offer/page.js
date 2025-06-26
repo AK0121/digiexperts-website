@@ -49,8 +49,8 @@ const products = [
   {
     title: "Vijay Restaurant",
     thumbnail: "/images/vr-mockup.png",
+    link: "https://www.vijayrestaurant.food",
   },
-
 ];
 
 const DigiExpertsLanding = () => {
