@@ -1,20 +1,15 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
   Target,
   Palette,
   Rocket,
-  BarChart3,
-  Users,
   Zap,
 } from "lucide-react";
 
 export default function ServicesSection() {
   const [expandedCard, setExpandedCard] = useState(null);
-
-  const staggeredFadeIn = (delay) => ({
-    animation: `fadeInUp 0.8s ease-out ${delay}s both`,
-  });
 
   const services = [
     {
@@ -83,204 +78,212 @@ export default function ServicesSection() {
     setExpandedCard(expandedCard === index ? null : index);
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.95 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+  };
+
+  const expandVariants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1],
+        opacity: { delay: 0.1 },
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.4,
+      },
+    }),
+  };
+
   return (
-    <>
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+    <section className="py-20 px-6 bg-black/20 relative z-[1] overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
 
-        @keyframes pulse {
-          0%,
-          100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-        }
+      <div className="container mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+            Our Process
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Simple, transparent, and results-driven approach to transform your
+            business
+          </p>
+        </motion.div>
 
-        .service-card {
-          background: linear-gradient(
-            135deg,
-            rgba(147, 51, 234, 0.1) 0%,
-            rgba(79, 70, 229, 0.1) 100%
-          );
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(147, 51, 234, 0.2);
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col gap-8 justify-center max-w-7xl mx-auto"
+        >
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            const isExpanded = expandedCard === index;
 
-        .service-card:hover {
-          transform: translateY(-8px);
-          background: linear-gradient(
-            135deg,
-            rgba(147, 51, 234, 0.15) 0%,
-            rgba(79, 70, 229, 0.15) 100%
-          );
-          border-color: rgba(147, 51, 234, 0.4);
-          box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
-        }
+            return (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -8,
+                  transition: { duration: 0.3 }
+                }}
+                className={`
+                  bg-gradient-to-br from-purple-500/30 to-indigo-500/30 
+                  backdrop-blur-3xl border border-purple-500/20 
+                  rounded-2xl p-8 group relative transition-all duration-500 
+                  w-full max-w-5xl mx-auto
+                  hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-indigo-500/30 
+                  hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/20
+                `}
+              >
+                <div className={isExpanded ? "flex flex-col gap-8" : ""}>
+                  <div>
+                    {/* Step Number */}
+                    <motion.div 
+                      className="text-6xl text-center md:text-7xl font-black mb-6 leading-none bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {service.step}
+                    </motion.div>
 
-        .step-number {
-          background: linear-gradient(135deg, #9333ea, #4f46e5);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          transition: all 0.3s ease;
-        }
+                    {/* Icon */}
+                    <motion.div 
+                      className="bg-gradient-to-br from-purple-500/20 to-indigo-500/20 backdrop-blur-sm rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6"
+                      whileHover={{ 
+                        scale: 1.1,
+                        background: "linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(79, 70, 229, 0.3))"
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <IconComponent className="w-8 h-8 text-purple-300" />
+                    </motion.div>
 
-        .service-card:hover .step-number {
-          animation: pulse 2s infinite;
-        }
+                    {/* Content */}
+                    <h3 className="text-2xl text-center font-bold mb-4 text-white group-hover:text-purple-200 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-300 text-center text-lg leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                  </div>
 
-        .icon-container {
-          background: linear-gradient(
-            135deg,
-            rgba(147, 51, 234, 0.2),
-            rgba(79, 70, 229, 0.2)
-          );
-          backdrop-filter: blur(10px);
-          transition: all 0.3s ease;
-        }
-
-        .service-card:hover .icon-container {
-          background: linear-gradient(
-            135deg,
-            rgba(147, 51, 234, 0.3),
-            rgba(79, 70, 229, 0.3)
-          );
-          transform: scale(1.1);
-        }
-
-        .expand-content {
-          max-height: 0;
-          overflow: hidden;
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .expand-content.expanded {
-          max-height: 800px;
-        }
-
-        .learn-more-btn {
-          background: linear-gradient(135deg, #9333ea, #4f46e5);
-          transition: all 0.3s ease;
-        }
-
-        .learn-more-btn:hover {
-          background: linear-gradient(135deg, #7c3aed, #3730a3);
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
-        }
-
-        .chevron {
-          transition: transform 0.3s ease;
-        }
-
-        .chevron.rotated {
-          transform: rotate(180deg);
-        }
-      `}</style>
-
-      <section className="py-20 px-6 bg-black/20 relative z-0 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto relative z-10">
-          <div style={staggeredFadeIn(0.2)} className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
-              Our Process
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Simple, transparent, and results-driven approach to transform your
-              business
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-8 justify-center max-w-7xl mx-auto">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              const isExpanded = expandedCard === index;
-
-              return (
-                <div
-                  key={index}
-                  style={staggeredFadeIn(0.3 + index * 0.2)}
-                  className={`service-card rounded-2xl p-8 group relative transition-all duration-500 w-full justify-center items-center max-w-5xl mx-auto ${
-                    isExpanded ? "w-full" : ""
-                  }`}
-                >
-                  <div
-                    className={`${
-                      isExpanded ? "flex flex-col gap-8" : ""
-                    }`}
-                  >
-                    <div>
-                      {/* Step Number */}
-                      <div className="text-6xl text-center md:text-7xl font-black step-number mb-6 leading-none text-purple-200">
-                        {service.step}
-                      </div>
-
-                      {/* Icon */}
-                      <div className="icon-container rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 bg-purple-900/20">
-                        <IconComponent className="text-center w-8 h-8 text-purple-300" />
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="text-2xl text-center font-bold mb-4 text-white group-hover:text-purple-200 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-300 text-center text-lg leading-relaxed mb-6">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    {/* Learn More Button */}
-                    <div>
-                      <button
-                        onClick={() => toggleExpand(index)}
-                        className="learn-more-btn cursor-pointer text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 w-full justify-center mb-4 bg-purple-700 hover:bg-purple-600 transition-all"
+                  {/* Learn More Button */}
+                  <div>
+                    <motion.button
+                      onClick={() => toggleExpand(index)}
+                      whileHover={{ 
+                        y: -2,
+                        boxShadow: "0 8px 25px rgba(147, 51, 234, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-blur bg-gray-400/20 backdrop-blur-lg text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-4 cursor-pointer w-full sm:w-80 justify-center mb-4 transition-all duration-300 mx-auto"
+                    >
+                      {isExpanded ? "Show Less" : "Learn More"}
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
                       >
-                        {isExpanded ? "Show Less" : "Learn More"}
-                        <ChevronDown
-                          className={`w-5 h-5 chevron ${
-                            isExpanded ? "rotated" : ""
-                          }`}
-                        />
-                      </button>
-                    </div>
+                        <ChevronDown className="w-5 h-5" />
+                      </motion.div>
+                    </motion.button>
+                  </div>
 
-                    {/* Expanded Content */}
+                  {/* Expanded Content */}
+                  <AnimatePresence mode="wait">
                     {isExpanded && (
-                      <div className="w-full">
+                      <motion.div
+                        variants={expandVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        className="w-full overflow-hidden"
+                      >
                         <div className="border-t border-purple-500/20 pt-6 space-y-6">
-                          <h4 className="text-xl font-bold text-purple-200">
+                          <motion.h4 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-xl font-bold text-purple-200"
+                          >
                             {service.details.subtitle}
-                          </h4>
+                          </motion.h4>
 
                           <div className="space-y-3">
                             {service.details.content.map((item, itemIndex) => (
-                              <div
+                              <motion.div
                                 key={itemIndex}
-                                className="flex items-center gap-3"
+                                custom={itemIndex}
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className="flex items-start gap-3"
                               >
-                                <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                                <p className="text-gray-300">{item}</p>
-                              </div>
+                                <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                                <p className="text-gray-300 text-sm sm:text-base">{item}</p>
+                              </motion.div>
                             ))}
                           </div>
 
-                          <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 rounded-lg p-4 border border-purple-500/20">
+                          <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 rounded-lg p-4 border border-purple-500/20"
+                          >
                             <div className="flex items-start gap-3">
                               <Zap className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
                               <div>
@@ -292,18 +295,17 @@ export default function ServicesSection() {
                                 </p>
                               </div>
                             </div>
-                          </div>
+                          </motion.div>
                         </div>
-                      </div>
+                      </motion.div>
                     )}
-                  </div>
+                  </AnimatePresence>
                 </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-    </>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
   );
 }

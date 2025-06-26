@@ -8,10 +8,9 @@ import { Phone } from "lucide-react";
 
 const products = [
   {
-    title: "Forex Funders",
-    link: "https://forexfunders.com",
+    title: "Techsy",
     thumbnail:
-    "/images/ff-mockup.png",
+    "/images/fake-mockup.png",
   },
   {
     title: "AKcelerate",
@@ -20,24 +19,22 @@ const products = [
     "/images/akcelerate-mockup.png",
   },
   {
-    title: "Techsy",
+    title: "Forex Funders",
+    link: "https://forexfunders.com",
     thumbnail:
-    "/images/fake-mockup.png",
+    "/images/ff-mockup.png",
   },
- 
   {
     title: "Editorially",
     link: "https://editorially.org",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+    "/images/editorially-mockup.png",
   },
   {
     title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
     thumbnail:
-    "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+    "/images/abc-inc.png",
   },
-  
   {
     title: "InvestWave",
     thumbnail:
@@ -58,7 +55,20 @@ const products = [
 
 const DigiExpertsLanding = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  
+  
+  const fadeInUp = {
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0)" : "translateY(30px)",
+    transition: "all 0.8s ease-out",
+  };
+  
+  const staggeredFadeIn = (delay) => ({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0)" : "translateY(30px)",
+    transition: `all 0.8s ease-out ${delay}s`,
+  });
+  
   const handleScroll = () => {
     if (typeof window !== "undefined") {
       const element = document.getElementById("landinig-footer");
@@ -67,18 +77,6 @@ const DigiExpertsLanding = () => {
       }
     }
   };
-
-  const fadeInUp = {
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateY(0)" : "translateY(30px)",
-    transition: "all 0.8s ease-out",
-  };
-
-  const staggeredFadeIn = (delay) => ({
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateY(0)" : "translateY(30px)",
-    transition: `all 0.8s ease-out ${delay}s`,
-  });
 
   const stats = [
     { number: "50+", label: "Projects Delivered" },
@@ -90,35 +88,42 @@ const DigiExpertsLanding = () => {
   const [timeLeft, setTimeLeft] = useState("");
 
   useEffect(() => {
-    const deadline = new Date();
-    deadline.setDate(deadline.getDate() + 7); // 7 days from now
+  // 🟣 1. Set isVisible to true so animations trigger
+  setIsVisible(true);
 
-    const updateTimer = () => {
-      const now = new Date().getTime();
-      const distance = deadline.getTime() - now;
+  // 🔁 2. Persistent deadline logic
+  let deadline = localStorage.getItem("offerDeadline");
 
-      if (distance < 0) {
-        setTimeLeft("Offer Expired");
-        return;
-      }
+  if (!deadline) {
+    const newDeadline = new Date();
+    newDeadline.setDate(newDeadline.getDate() + 7);
+    deadline = newDeadline.getTime();
+    localStorage.setItem("offerDeadline", deadline);
+  }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const updateTimer = () => {
+    const now = new Date().getTime();
+    const distance = deadline - now;
 
-      setTimeLeft(
-        `${days}d ${hours}h ${minutes}m ${seconds}s`
-      );
-    };
+    if (distance < 0) {
+      setTimeLeft("Offer Expired");
+      return;
+    }
 
-    const interval = setInterval(updateTimer, 1000);
-    updateTimer();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+    setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+  };
+
+  const interval = setInterval(updateTimer, 1000);
+  updateTimer();
+
+  return () => clearInterval(interval);
+}, []);
+
 
 
   return (
@@ -132,8 +137,8 @@ const DigiExpertsLanding = () => {
       </div>
 
       {/* Nav */}
-      <nav className="container w-10/12 mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+      <nav className="container w-10/12 mx-auto px-2 sm:px-6 py-4 flex justify-between items-center">
+        <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
           DigiExperts
         </div>
         <button
@@ -151,17 +156,12 @@ const DigiExpertsLanding = () => {
     </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-slate-900 via-black/75 to-black">
+      <section className="bg-gradient-to-b from-slate-900 via-black/75 to-black pb-5 sm:pb-32">
       <HeroParallax products={products} />
-        <div className="container mx-auto text-center pt-32">
-          <div style={fadeInUp}>
-           
-          </div>
-        </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-6 bg-black/20">
+      <section className="py-20 px-6 bg-black/20">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
@@ -184,8 +184,6 @@ const DigiExpertsLanding = () => {
       <Services />
 
       <OurProcess />
-
-      {/* Testimonials */}
       
       {/* Footer */}
       <Footer />

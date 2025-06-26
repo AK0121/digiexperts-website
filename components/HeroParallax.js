@@ -44,7 +44,7 @@ export const HeroParallax = ({ products }) => {
   return (
     <div
       ref={ref}
-      className="h-[200vh] md:h-[280vh] pt-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[200vh] md:h-[280vh] pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -104,7 +104,8 @@ export const Header = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="max-w-7xl flex flex-col items-center relative z-50 mx-auto pt-20 md:pt-36 px-4 w-full  left-0 top-0">
+    <div className="max-w-7xl flex flex-col items-center relative z-50 mx-auto pt-20 md:pt-36 px-4 w-full left-0 top-0">
+      <FormModal isOpen={isModalOpen} onClose={closeModal} />
       <h1 className="text-5xl md:text-7xl text-center font-bold mb-2 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
         Convert Visitors Into
         <br />
@@ -124,7 +125,6 @@ export const Header = () => {
           Our Services
         </button>
       </div>
-      <FormModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
@@ -148,6 +148,7 @@ export const ProductCard = ({ product, translate }) => {
           width="600"
           className="object-cover object-center absolute h-full w-full inset-0"
           alt={product.title}
+          priority={true}
         />
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>

@@ -43,7 +43,7 @@ export default function Contact({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-3xl px-4">
+    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-3xl px-4">
       {/* Success Toast */}
       {showSuccess && (
         <div className="absolute top-6 bg-green-600 text-white font-medium px-6 py-3 rounded-xl shadow-xl animate-bounce z-50">
