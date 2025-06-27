@@ -26,11 +26,11 @@ const BookingDashboard = () => {
     const isAdmin = localStorage.getItem("isAdmin");
     if (isAdmin) {
       setAuth(true);
-      loadBookings(); // only after auth is confirmed
+      loadBookings();
     } else {
       router.push("/admin/login");
     }
-  });
+  }, [router]);
 
   const loadBookings = () => {
     const storedBookings = JSON.parse(localStorage.getItem("bookings") || "[]");

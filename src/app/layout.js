@@ -1,6 +1,7 @@
 import { poppins } from "../../lib/font.js";
 import "./globals.css";
 import RootLayoutClient from "./RootLayoutClient";
+import CustomHead from "../../components/Head.js";
 
 export const metadata = {
   title: "DigiExperts – Your Digital Growth Partner",
@@ -45,11 +46,16 @@ export const metadata = {
   alternates: {
     canonical: "https://digiexperts.solutions",
   },
+  icons:{
+    icon:"/favicon.ico"
+  }
 };
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+        <CustomHead />
       <body className={`${poppins.className} antialiased`}>
         <RootLayoutClient>{children}</RootLayoutClient>
       </body>
