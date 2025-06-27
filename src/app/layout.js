@@ -4,19 +4,35 @@ import RootLayoutClient from "./RootLayoutClient";
 import CustomHead from "../../components/Head.js";
 
 export const metadata = {
-  title: "DigiExperts – Your Digital Growth Partner",
+  title: "DigiExperts — Your Digital Growth Partner",
   description: "We grow your business using cutting-edge digital strategies, SEO, ads & conversion-focused design.",
-  keywords: ["digital marketing", "SEO", "web development", "Jaipur", "performance marketing", "Best Website Design", "Facebook Ads", "Meta Marketing", "Small business marketing", "Digital", "Digiexperts"],
+  keywords: [
+    "web development Jaipur",
+    "digital marketing Jaipur",
+    "Facebook ads agency",
+    "best website designer in Jaipur",
+    "performance marketing",
+    "SEO expert Jaipur",
+    "Digiexperts solutions",
+    "small business marketing",
+    "landing page designer",
+    "meta marketing expert",
+    "local web developer Jaipur",
+    "ad agency Jaipur",
+    "Jaipur digital agency",
+    "Digiexperts",
+    "best digital agency Vidhyadhar Nagar"
+  ],
   authors: [{ name: "Abhishek (AK)", url: "https://digiexperts.solutions" }],
   creator: "AKcelerate",
   openGraph: {
-    title: "DigiExperts – Growth Partner",
-    description: "Result-driven digital growth for serious businesses.",
+    title: "DigiExperts — Growth Partner",
+    description: "From stunning websites to Facebook ads that convert — DigiExperts helps businesses grow faster with real digital results that matter.",
     url: "https://digiexperts.solutions",
     siteName: "DigiExperts",
     images: [
       {
-        url: "https://digiexperts.solutions/og-image.jpg",
+        url: "https://digiexperts.solutions/images/digiexperts-mockup.png",
         width: 1200,
         height: 630,
         alt: "DigiExperts OG Image",
@@ -27,10 +43,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DigiExperts – Growth Partner",
-    description: "We scale your business digitally with performance-based strategies.",
+    title: "DigiExperts — Growth Partner",
+    description: "From stunning websites to Facebook ads that convert — DigiExperts helps businesses grow faster with real digital results that matter.",
     creator: "@yourTwitter",
-    images: ["https://digiexperts.solutions/og-image.jpg"],
+    images: ["https://digiexperts.solutions/images/digiexperts-mockup.png"],
   },
   robots: {
     index: true,
