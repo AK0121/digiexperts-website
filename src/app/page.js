@@ -1,142 +1,158 @@
+"use client";
+
 import Image from "next/image";
-import { AnimatedTestimonials } from "../../components/AnimatesTestimonials";
-import { HoverEffect } from "../../components/CardsHover";
 import Link from "next/link";
-import { Globe, Code, Laptop, Facebook, Target, Search } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import HeroBanner from "../../components/ui/HeroBanner";
+import Services from "../../components/homepage_components/Services";
+import CaseStudies from "../../components/homepage_components/CaseStudies";
+import WhyDigiexperts from "../../components/homepage_components/WhyDigiexperts";
 
-export default function Home() {
-
-  const testimonials = [
-    {
-      quote:
-        "DigiExperts exceeded our expectations with their web development expertise and strategic approach to Meta marketing and Facebook Ads. Their team crafted a seamless user experience that drove conversions.",
-      name: "Rahul Saini",
-      designation: "Investment Manager",
-      src: "/images/testimonial-1.jpg",
-    },
-    {
-      quote:
-        "DigiExperts' web development services were a perfect fit for our business needs. Their team understood our requirements and delivered a solution that met our expectations.",
-      name: "Abhay Saini",
-      designation: "Restaurant Owner",
-      src: "/images/testimonial-2.jpg",
-    },
-  ];
-  
-  const projects = [
-    {
-      title: "Website Design",
-      icon: <Laptop />,
-      description:
-        "Modern, responsive website designs that capture your brand and engage your audience.",
-    },
-    {
-      title: "Web Development",
-      icon: <Code />,
-      description:
-        "Custom web applications built with latest technologies for optimal performance.",
-    },
-    {
-      title: "Landing Pages",
-      icon: <Target />,
-      description:
-        "High-converting landing pages designed to turn visitors into customers.",
-    },
-    {
-      title: "Facebook Ads",
-      icon: <Facebook />,
-      description:
-        "Strategic social media advertising campaigns to reach your target audience effectively.",
-    },
-    {
-      title: "Ad Strategy & Funnel Planning",
-      icon: <Search />,
-      description:
-        "	Building custom ad strategies and funnels based on business goals.",
-    },
-    {
-      title: "SEO",
-      icon: <Globe />,
-      description:
-        "Search engine optimization to improve your website&apos;s visibility and organic traffic.",
-    },
-  ];
+const HeroSection = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 250], [0, -50], { clamp: false });
+  const smoothY = useSpring(y, {
+    stiffness: 50,
+    damping: 20,
+    mass: 2,
+  });
 
   return (
-    <div className="min-h-screen bg-green-50">
-
-      {/* Hero Section */}
-      <section className="bg-[#10b140] w-full max-w-[120rem] mx-auto text-white py-20 lg:py-32 flex flex-col sm:flex-row justify-around items-center gap-12 sm:gap-0">
-        <div className="max-w-xl text-center sm:text-left px-4">
-          <h2 className="text-4xl lg:text-6xl font-bold mb-6">
-            Digital Solutions for Your Business
-          </h2>
-          <p className="text-xl lg:text-2xl text-gray-100 mb-8">
-            Professional web development, design, and digital marketing services
-            in Jaipur and online
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
-            <Link href="/contact" className="bg-blue-600 hover:scale-105 text-white px-8 py-3 rounded-lg font-semibold transition-transform duration-75 ease-in cursor-pointer">
-              Get your website
-            </Link>
-            <Link href="/contact" className="bg-white border-2 border-white text-black hover:scale-105 px-8 py-3 rounded-lg font-semibold transition-all duration-75 ease-in cursor-pointer z-10">
-              Start AD campaigns
-            </Link>
-          </div>
-        </div>
-        <div className="right-2.5 w-80 h-80 sm:w-96 sm:h-96 relative">
-          <Image
-            src="/images/hero-illustration.svg"
-            alt="Hero Illustration"
-            fill
-            sizes="(max-width: 640px) 288px, 384px"
-            className="object-contain"
-            priority
+    <div className="min-h-screen bg-black">
+      <section
+        className="relative font-outfit h-[110vh] md:h-[90vh] lg:h-[110vh] pt-12 lg:py-16
+       bg-gradient-to-br from-gray-950 via-[#000223] to-[#000223] overflow-hidden"
+      >
+        {/* Subtle Grid + Glow Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 6px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 6px)",
+            }}
           />
         </div>
-        <div className="absolute -bottom-60 sm:-bottom-52 left-1/2 transform -translate-x-1/2 w-[26rem] h-96 sm:w-3xl sm:h-[30rem]">
-          <Image
-            alt="Landing-pages-image"
-            sizes="(max-width: 768px) 700, 1000"
-            fill
-            src="/images/landing-pages.png"
-          />
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 via-transparent to-purple-900/40 blur-3xl" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 lg:pt-0 pb-32 flex flex-col lg:flex-row items-center justify-between min-h-screen gap-12">
+          {/* Left Content */}
+          <motion.div
+            style={{ y: smoothY }}
+            className="flex-1 min-w-[320px] text-center lg:text-left space-y-8"
+          >
+            <div className="Heading flex flex-col gap-4">
+              <h1 className="text-5xl sm:text-8xl uppercase font-medium text-white">
+                <span className="block">Enter the</span> <span className="block text-6xl">Digital World</span>
+              </h1>
+              <h2 className="text-xl font-inter text-gray-100">
+                with Our Website Design & Digital Marketing Agency
+              </h2>
+            </div>
+
+            <div className="Sub-heading flex flex-col font-inter">
+              <p className="pl-1 text-lg sm:text-xl tracking-[0.05rem] leading-[27px] text-gray-200 max-w-xl mx-auto lg:mx-0">
+                A new era of creativity & technology.
+              </p>
+              <p className="pl-1 text-lg sm:text-xl tracking-[0.05rem] leading-[27px] text-gray-200 max-w-xl mx-auto lg:mx-0">
+                We build unforgettable digital experiences that move people.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 pt-6 justify-center items-center lg:justify-start">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/contact"
+                  className="relative text-lg lg:text-xl w-72 h-14 px-8 py-5 rounded-[8px] font-inter font-semibold text-white bg-gradient-to-tr from-[#2896fe] to-[#601ee4] shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+                >
+                  Let&rsquo;s Work Together
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/special-offer"
+                  className="w-72 h-14 text-lg lg:text-xl font-inter px-8 py-5 rounded-[8px] bg-gray-100/10 font-semibold text-gray-200 backdrop-blur-md hover:text-white hover:border-white/40 transition-all duration-300 flex items-center justify-center"
+                >
+                  See Our Work
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Content - Interactive Globe */}
+          <div className="flex-1 flex pr-24 sm:pr-0 items-center justify-center lg:justify-end">
+            <motion.div
+              style={{ y }}
+              className="relative w-[clamp(280px,40vw,600px)] aspect-square lg:translate-x-16"
+              initial={{ filter: "brightness(5)", scale: 0.2 }}
+              animate={{ filter: "brightness(1)", scale: 1 }}
+              transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
+            >
+              {/* Globe */}
+              <motion.div className="absolute inset-0 z-50">
+                <Image
+                  src="/images/globe.png"
+                  alt="Digital World Globe"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
+                  priority
+                  className="object-contain"
+                />
+              </motion.div>
+
+              {/* Glow */}
+              <motion.div
+                className="absolute z-40 inset-0 rounded-full bg-gradient-to-r from-blue-600/40 via-purple-600/40 to-blue-800/40 blur-3xl"
+                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Floating Particles */}
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full shadow-lg"
+                  style={{
+                    left: `${10 + i * 7}%`,
+                    top: `${20 + (i % 4) * 20}%`,
+                    zIndex: i % 2 === 0 ? 15 : 25,
+                  }}
+                  animate={{
+                    y: [-10, -30, -10],
+                    x: [0, Math.sin(i) * 10, 0],
+                    opacity: [0.2, 1, 0.2],
+                    scale: [0.5, 1.5, 0.5],
+                  }}
+                  transition={{
+                    duration: 4 + i * 0.3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.2,
+                  }}
+                />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
-
-      {/* Our Services Section */}
-      <section className="py-20 bg-green-50 mt-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-8xl font-bold text-blue-600 mb-4">
-              Our Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive digital solutions to grow your business online
-            </p>
-          </div>
-
-          <HoverEffect key={projects.title} items={projects} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" />
-        </div>
-      </section>
-
-      {/* Hear From Our Clients Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-8xl font-bold text-gray-900 mb-4">
-              Hear From Our Clients
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              See what our satisfied clients have to say about our services
-            </p>
-          </div>
-
-          <div>
-            <AnimatedTestimonials testimonials={testimonials} />
-          </div>
-        </div>
-      </section>
+      <HeroBanner />
+      <Services />
+      <CaseStudies />
+      <WhyDigiexperts />
     </div>
   );
-}
+};
+
+export default HeroSection;

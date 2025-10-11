@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Phone, Mail, MapPin, Calendar, Facebook, X , Instagram, Linkedin } from 'lucide-react'
-import BookingModal from '../../../components/BookingModal'
+import BookingModal from '../../../components/shared/BookingModal'
 import ContactForm from '../../../components/ContactForm' 
 
 export default function ContactPage() {

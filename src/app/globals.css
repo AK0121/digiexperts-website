@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme inline{
+  --color-purple: #210b35;
+  --color-magic-blue: #0a174e;
+  --color-teal: #007a93;
+
+  --font-outfit: var(--font-outfit);
+  --font-inter: var(--font-inter);
+  --font-bebas-neue: var(--font-bebas-neue);
+}
+
 body {
   background: #f0fdf4;
   color: #171717;

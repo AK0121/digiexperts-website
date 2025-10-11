@@ -11,7 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import BookingModal from "../../../components/BookingModal.js";
+import BookingModal from "../../../components/shared/BookingModal.js";
 import { useState } from "react";
 
 const About = () => {

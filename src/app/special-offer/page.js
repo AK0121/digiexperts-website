@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { HeroParallax } from "../../../components/HeroParallax.js";
+import { HeroParallax } from "../../../components/section/HeroParallax.js";
 import  OurProcess  from "@/app/special-offer/OurProcess.js"
 import  Services  from "@/app/special-offer/Services.js"
 import Footer from "../special-offer/Footer.js";

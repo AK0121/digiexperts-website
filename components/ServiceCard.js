@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import BookingModal from "./BookingModal.js";
+import BookingModal from "./shared/BookingModal.js";
 import Link from "next/link.js";
 
 // Move servicesData here or import from a separate data file
