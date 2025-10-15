@@ -44,15 +44,6 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-3 group">
-                <div className="relative h-10 w-10 lg:h-12 lg:w-12 overflow-hidden rounded-xl bg-gradient-to-br from-teal-400 to-blue-500 p-1 transition-transform group-hover:scale-105">
-                  <Image
-                    alt="DigiExperts Logo"
-                    className="object-contain rounded-lg"
-                    height={48}
-                    width={48}
-                    src="/images/digiexperts-logo.png"
-                  />
-                </div>
                 <div className="hidden sm:block">
                   <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
                     DigiExperts

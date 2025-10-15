@@ -11,9 +11,10 @@ export default function RootLayoutClient({ children }) {
   const pathname = usePathname()
 
   const isLandingPage = pathname.startsWith('/special-offer')
+  const islandingPage = pathname.startsWith('/diwali-offer')
 
   return (
-    isLandingPage ? (
+    isLandingPage || islandingPage ? (
       <>
         {children}
       </>
