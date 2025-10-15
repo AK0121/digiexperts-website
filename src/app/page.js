@@ -43,7 +43,7 @@ const HeroSection = () => {
             className="flex-1 min-w-[320px] text-center lg:text-left space-y-8"
           >
             <div className="Heading flex flex-col gap-4">
-              <h1 className="text-5xl sm:text-8xl uppercase font-medium text-white">
+              <h1 className="text-5xl sm:text-7xl uppercase font-medium text-white">
                 <span className="block">Enter the</span> <span className="block text-6xl">Digital World</span>
               </h1>
               <h2 className="text-xl font-inter text-gray-100">
