@@ -95,7 +95,7 @@ const TestimonialCard = ({ name, company, text, delay }) => {
           <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
         ))}
       </div>
-      <p className="text-gray-300 mb-4 italic">"{text}"</p>
+      <p className="text-gray-300 mb-4 italic">&quot;{text}&quot;</p>
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center text-white font-bold">
           {name.charAt(0)}
@@ -449,7 +449,7 @@ export default function DiwaliLanding() {
                 Diwali Offer Ends Soon
               </h2>
               <p className="text-xl text-gray-300 mb-8">
-                Don't miss out on this limited-time opportunity
+                Don&apos;t miss out on this limited-time opportunity
               </p>
               <CountdownTimer targetDate={targetDate} />
               <motion.button
