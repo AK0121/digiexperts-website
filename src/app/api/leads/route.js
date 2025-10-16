@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 );
 
 export async function POST(request) {
@@ -19,7 +19,7 @@ export async function POST(request) {
 
     // Insert into Supabase
     const { data, error } = await supabase
-      .from('leads')
+      .from('Diwali-Leads')
       .insert([
         {
           name,
