@@ -21,7 +21,7 @@ const LeadsForm = ({ isOpen, onClose }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/leads', {
+      const response = await fetch('/api/Diwali-Leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
