@@ -130,7 +130,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              Let's Build Something{" "}
+              Let&apos;s Build Something{" "}
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 That Actually Works
               </span>
@@ -149,20 +149,6 @@ export default function ContactPage() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Send Us a Message
-            </h2>
-            <p className="text-gray-400 text-lg">
-              We'll get back to you within 24 hours
-            </p>
-          </motion.div>
 
           <motion.form
             onSubmit={handleSubmit}
@@ -170,7 +156,7 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10"
+            className="relative mt-10 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10"
           >
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 pointer-events-none" />
 
@@ -346,7 +332,7 @@ export default function ContactPage() {
             </span>
           </h2>
           <p className="text-2xl text-gray-400 mb-8">
-            Let's create something extraordinary together.
+            Let&apos;s create something extraordinary together.
           </p>
         </motion.div>
       </section>
