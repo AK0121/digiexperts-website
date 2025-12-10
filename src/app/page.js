@@ -10,17 +10,17 @@ import WhyDigiexperts from "../../components/homepage_components/WhyDigiexperts"
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 250], [0, -50], { clamp: false });
+  const y = useTransform(scrollY, [0, 250], [0, -150], { clamp: false });
   const smoothY = useSpring(y, {
     stiffness: 50,
     damping: 20,
     mass: 2,
-  });
+  }); 
 
   return (
     <div className="min-h-screen bg-black">
       <section
-        className="relative font-outfit h-[110vh] md:h-[90vh] lg:h-[110vh] pt-12 lg:py-16
+        className="relative font-outfit h-[110vh] md:h-[90vh] lg:h-[110vh] pt-12 lg:py-20
        bg-gradient-to-br from-gray-950 via-[#000223] to-[#000223] overflow-hidden"
       >
         {/* Subtle Grid + Glow Background */}
@@ -39,8 +39,10 @@ const HeroSection = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 lg:pt-0 pb-32 flex flex-col lg:flex-row items-center justify-between min-h-screen gap-12">
           {/* Left Content */}
           <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
             style={{ y: smoothY }}
-            className="flex-1 min-w-[320px] text-center lg:text-left space-y-8"
+            className="flex-1 min-w-[320px] pt-10 text-center lg:text-left space-y-8"
           >
             <div className="Heading flex flex-col gap-4">
               <h1 className="text-5xl sm:text-7xl uppercase font-medium text-white">
@@ -77,12 +79,12 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link
-                  href="/special-offer"
-                  className="w-72 h-14 text-lg lg:text-xl font-inter px-8 py-5 rounded-[8px] bg-gray-100/10 font-semibold text-gray-200 backdrop-blur-md hover:text-white hover:border-white/40 transition-all duration-300 flex items-center justify-center"
+                <button
+                onClick={() => handleScroll("case-studies")}
+                className="w-72 cursor-pointer h-14 text-lg lg:text-xl font-inter px-8 py-5 rounded-[8px] bg-gray-100/10 font-semibold text-gray-200 backdrop-blur-md hover:text-white hover:border-white/40 transition-all duration-300 flex items-center justify-center"
                 >
                   See Our Work
-                </Link>
+                </button>
               </motion.div>
             </div>
           </motion.div>

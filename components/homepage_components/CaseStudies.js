@@ -38,7 +38,7 @@ const CaseStudies = () => {
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
 
   return (
-    <section ref={containerRef} className="min-h-screen py-10 sm:py-10 bg-[#000617] font-outfit relative overflow-hidden">
+    <section id="case-studies" ref={containerRef} className="min-h-screen py-10 sm:py-10 bg-[#000617] font-outfit relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Orbs */}

@@ -7,19 +7,18 @@ import { useRef } from "react";
 
 // Animation variants
 const textVariant = {
-  hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+  hidden: { y: 40, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    filter: "blur(0px)",
-    transition: { type: "spring", stiffness: 20 },
+    transition: { type: "spring", stiffness: 5 },
   },
 };
 
 const headingContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.5 },
+    transition: { staggerChildren: 0.3 },
   },
 };
 
@@ -35,9 +34,9 @@ const subheadingContainer = {
 
 // Single Service Card Component
 const ServiceCard = ({ title, desc, img, btn, className }) => {
-  const containerRef = useRef(null);
+  const sectionRef = useRef();
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: sectionRef,
     offset: ["start end", "end start"],
   });
 
@@ -50,15 +49,16 @@ const ServiceCard = ({ title, desc, img, btn, className }) => {
   );
   return (
     <motion.div
-      ref={containerRef}
+      ref={sectionRef}
       style={{
         boxShadow: "rgba(0, 0, 0, 0.45) 0px 25px 20px -20px",
         y,
         opacity,
         scale,
       }}
-      className={`flex h-[32rem] w-[26rem] py-2 flex-col border-[2px] border-[#000738] bg-gradient-to-tr from-[#70aeff]/15 to-[#c2f3ff58] rounded-[24px] text-black ${className}`}
+      className={`flex h-[36rem] w-[28rem] will-change-transform will-change-opacity py-4 flex-col bg-[#01061f] rounded-[20px] text-[#ffffffe7] ${className}`}
     >
+      {/* bg-[#000917] */}
       {/* Image */}
       <div className="service-card-visual-content py-4 rounded-[14px] bg-cover">
         <Image
@@ -71,13 +71,13 @@ const ServiceCard = ({ title, desc, img, btn, className }) => {
       </div>
 
       {/* Text Content */}
-      <div className="flex flex-col flex-grow items-center justify-between px-4 pb-6">
+      <div className="flex flex-col flex-grow items-center justify-between px-4 py-6">
         <p className="text-lg w-11/12 mx-auto text-center font-inter">{desc}</p>
 
         {/* Button always pinned at bottom */}
         <Link
           href="/contact"
-          className="w-full text-2xl h-12 mt-3 text-[14px] lg:text-xl font-inter px-8 py-6 rounded-sm bg-gradient-to-br from-[#060F39] to-[#2a0146] font-semibold text-white flex items-center justify-center transition-all duration-300 ease-in-out hover:opacity-90"
+          className="w-full text-2xl h-12 mt-3 text-[14px] lg:text-xl font-inter px-8 py-6 rounded-[7px] bg-gradient-to-br from-[#000f52] to-[#2b005c] font-semibold text-white flex items-center justify-center transition-all duration-300 ease-in-out hover:opacity-90"
         >
           {btn}
         </Link>
@@ -99,51 +99,51 @@ const Services = () => {
       desc: "Custom website design tailored for startups, small businesses, and established brands — modern, creative, and user-focused.",
       img: "/images/web-design-service.png",
       btn: "Get Your Web Design",
-      className: "mt-0 lg:mt-20",
+      className: "mt-0 lg:mt-10",
     },
     {
       title: "Website Development",
       desc: "Responsive, fast, and scalable web development solutions — from business websites to full-stack web applications.",
       img: "/images/web-dev-service.png",
       btn: "Build Your Website",
-      className: "mt-0 lg:mt-52",
+      className: "mt-0 lg:mt-60",
     },
     {
       title: "Meta Marketing",
       desc: "ROI-driven Meta ads on Facebook & Instagram to grow traffic, increase engagement, and convert leads into customers.",
       img: "/images/meta-marketing-service.png",
       btn: "Run Meta Ads",
-      className: "mt-0 lg:mt-4",
+      className: "mt-0 lg:mb-0",
     },
     {
       title: "SEO & Google Business",
       desc: "Boost your search engine rankings, optimize your Google Business profile, and get discovered by local & global audiences.",
       img: "/images/seo-service.png",
       btn: "Boost Visibility",
-      className: "mt-0 lg:mt-40",
+      className: "mt-0 lg:mt-60",
     },
     {
       title: "Google Ads",
       desc: "Targeted Google Ads campaigns designed to drive quality traffic, maximize ROI, and grow your online presence.",
       img: "/images/google-ads-service.png",
       btn: "Run Google Ads",
-      className: "mt-0 lg:mt-16",
+      className: "mt-0 lg:mt-0",
     },
     {
       title: "Digiexperts Package",
       desc: "All-in-one growth package combining web design, development, SEO, and digital marketing for complete brand success.",
       img: "/images/digiexperts-package-service.png",
       btn: "Get The Package",
-      className: "mt-0 lg:mt-48",
+      className: "mt-0 lg:mt-60",
     },
   ];
 
   return (
-    <section className="font-outfit pb-20 md:pb-60 pt-20 lg:pt-40 bg-[#9ccfff] overflow-hidden">
+    <section id="services" className="font-outfit pb-20 md:pb-40 pt-20 lg:pt-40 bg-[#9ccfff] overflow-hidden">
       <div className="text-content flex flex-col gap-10">
         {/* Heading */}
         <motion.h1
-          className="text-5xl lg:text-9xl text-[#000000] w-11/12 md:w-10/12 mx-auto text-center flex flex-wrap justify-center gap-x-3 lg:gap-x-8"
+          className="text-5xl lg:text-9xl font-bebas-neue text-[#000000] w-11/12 md:w-10/12 mx-auto text-center flex flex-wrap justify-center gap-x-3 lg:gap-x-8"
           variants={headingContainer}
           initial="hidden"
           whileInView="visible"

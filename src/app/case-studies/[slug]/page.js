@@ -62,7 +62,7 @@ export default function CaseStudyPage({ params }) {
   if (!data) return <div className="text-center text-white py-40">Case Study Not Found</div>;
 
   return (
-    <div className="bg-[#000617] text-white min-h-screen py-20 font-inter">
+    <div className="bg-gradient-to-b from-[#07023a] via-[#030225] to-[#000000] text-white min-h-screen pt-40 pb-20 font-inter">
       {/* Hero Section */}
       <div className="text-center mb-16">
         <span className="px-4 py-1 rounded-full bg-blue-900 text-sm font-semibold">

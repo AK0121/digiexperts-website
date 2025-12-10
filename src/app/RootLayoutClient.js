@@ -2,8 +2,6 @@
 
 import Navbar from "../../components/shared/Navbar.js";
 import Footer from "../../components/shared/Footer.js";
-import PageTransition from "../../components/PageTransition.js";
-import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { useEffect } from "react";
 
@@ -25,17 +23,11 @@ export default function RootLayoutClient({ children }) {
     };
   }, []);
 
-  const pathname = usePathname();
-
-  const isLandingPage = pathname.startsWith("/special-offer");
-
-  return isLandingPage ? (
-    <>{children}</>
-  ) : (
-    <PageTransition>
+  return (
+    <>
       <Navbar />
       {children}
       <Footer />
-    </PageTransition>
+    </>
   );
 }
