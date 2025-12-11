@@ -21,7 +21,7 @@ const HeroSection = () => {
     <div className="min-h-screen bg-black">
       <section
         className="relative font-outfit h-[110vh] md:h-[90vh] lg:h-[110vh] pt-12 lg:py-20
-       bg-gradient-to-br from-gray-950 via-[#000223] to-[#000223] overflow-hidden"
+       bg-linear-to-br from-gray-950 via-[#000223] to-[#000223] overflow-hidden"
       >
         {/* Subtle Grid + Glow Background */}
         <div className="absolute inset-0 opacity-20">
@@ -33,7 +33,7 @@ const HeroSection = () => {
             }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 via-transparent to-purple-900/40 blur-3xl" />
+        <div className="absolute inset-0 bg-linear-to-tr from-blue-900/40 via-transparent to-purple-900/40 blur-3xl" />
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 lg:pt-0 pb-32 flex flex-col lg:flex-row items-center justify-between min-h-screen gap-12">
@@ -70,7 +70,7 @@ const HeroSection = () => {
               >
                 <Link
                   href="/contact"
-                  className="relative text-lg lg:text-xl w-72 h-14 px-8 py-5 rounded-[8px] font-inter font-semibold text-white bg-gradient-to-tr from-[#2896fe] to-[#601ee4] shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+                  className="relative text-lg lg:text-xl w-72 h-14 px-8 py-5 rounded-[8px] font-inter font-semibold text-white bg-linear-to-tr from-[#2896fe] to-[#601ee4] shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
                 >
                   Let&rsquo;s Work Together
                 </Link>
@@ -112,7 +112,7 @@ const HeroSection = () => {
 
               {/* Glow */}
               <motion.div
-                className="absolute z-40 inset-0 rounded-full bg-gradient-to-r from-blue-600/40 via-purple-600/40 to-blue-800/40 blur-3xl"
+                className="absolute z-40 inset-0 rounded-full bg-linear-to-r from-blue-600/40 via-purple-600/40 to-blue-800/40 blur-3xl"
                 animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
                 transition={{
                   duration: 4,
@@ -125,7 +125,7 @@ const HeroSection = () => {
               {[...Array(12)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full shadow-lg"
+                  className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-linear-to-r from-blue-400 to-purple-400 rounded-full shadow-lg"
                   style={{
                     left: `${10 + i * 7}%`,
                     top: `${20 + (i % 4) * 20}%`,
