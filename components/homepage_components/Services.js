@@ -139,7 +139,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="font-outfit pb-20 md:pb-40 pt-20 lg:pt-40 bg-[#9ccfff] overflow-hidden">
+    <section id="services" className="font-outfit pb-20 md:pb-40 pt-20 lg:pt-40 bg-[#daeaff] overflow-hidden">
       <div className="text-content flex flex-col gap-10">
         {/* Heading */}
         <motion.h1

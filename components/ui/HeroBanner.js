@@ -77,7 +77,7 @@ export default function HeroBanner() {
   return (
     <div
       ref={containerRef}
-      className="relative font-bebas-neue pt-0 sm:pt-20 h-[260vh] w-full bg-gradient-to-b from-[#000435] to-[#9ccfff]"
+      className="relative font-bebas-neue pt-0 sm:pt-20 h-[260vh] w-full bg-gradient-to-b from-[#000435] via-[#9ccfff] to-[#daeaff]"
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         {/* Clouds - background layer */}

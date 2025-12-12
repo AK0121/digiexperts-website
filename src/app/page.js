@@ -10,7 +10,7 @@ import WhyDigiexperts from "../../components/homepage_components/WhyDigiexperts"
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 250], [0, -150], { clamp: false });
+  const y = useTransform(scrollY, [0, 250], [0, -10], { clamp: false });
   const smoothY = useSpring(y, {
     stiffness: 50,
     damping: 20,
@@ -70,7 +70,7 @@ const HeroSection = () => {
               >
                 <Link
                   href="/contact"
-                  className="relative text-lg lg:text-xl w-72 h-14 px-8 py-5 rounded-[8px] font-inter font-semibold text-white bg-linear-to-tr from-[#2896fe] to-[#601ee4] shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+                  className="relative text-lg lg:text-xl w-72 h-14 px-8 py-5 rounded-lg font-inter font-semibold text-white bg-linear-to-tr from-[#2896fe] to-[#601ee4] shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
                 >
                   Let&rsquo;s Work Together
                 </Link>
@@ -81,7 +81,7 @@ const HeroSection = () => {
               >
                 <button
                 onClick={() => handleScroll("case-studies")}
-                className="w-72 cursor-pointer h-14 text-lg lg:text-xl font-inter px-8 py-5 rounded-[8px] bg-gray-100/10 font-semibold text-gray-200 backdrop-blur-md hover:text-white hover:border-white/40 transition-all duration-300 flex items-center justify-center"
+                className="w-72 cursor-pointer h-14 text-lg lg:text-xl font-inter px-8 py-5 rounded-lg bg-gray-100/10 font-semibold text-gray-200 backdrop-blur-md hover:text-white hover:border-white/40 transition-all duration-300 flex items-center justify-center"
                 >
                   See Our Work
                 </button>
